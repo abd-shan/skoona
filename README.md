@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# React Native Project - Project Structure
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Folder and File Structure
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+first-app/
+├── app/
+│   ├── _layout.tsx          # Entry point for navigation using expo-router
+│   ├── modal.tsx            # Modal screen
+│   └── (tabs)/              # Tabs layout
+│       ├── _layout.tsx      # Tabs definition and properties
+│       ├── explore.tsx      # Explore screen
+│       └── index.tsx        # Main screen
+├── components/              # Reusable UI components
+│   ├── external-link.tsx    # Component for opening external links
+│   ├── haptic-tab.tsx       # Tab button with haptics on iOS
+│   ├── hello-wave.tsx       # Animated text component
+│   ├── parallax-scroll-view.tsx # Scrollable component with animated header
+│   ├── themed-text.tsx      # Text supporting light and dark modes
+│   ├── themed-view.tsx      # Container supporting light and dark modes
+│   └── ui/                  # UI components
+│       ├── collapsible.tsx  # Collapsible content component
+│       ├── icon-symbol.tsx  # SF Symbols icons (Android/Web)
+│       └── icon-symbol.ios.tsx # SF Symbols icons (iOS)
+├── constants/               # Constants
+│   └── theme.ts             # App colors and fonts
+├── hooks/                   # Custom hooks
+│   ├── use-color-scheme.ts  # Detect light/dark mode
+│   ├── use-color-scheme.web.ts # Web-specific logic for mode detection (SSR/hydration)
+│   └── use-theme-color.ts   # Select colors based on the mode
+├── scripts/                 # Helper scripts
+│   └── reset-project.js     # Script to reset the project
+├── app.json                 # Expo configuration
+├── eas.json                 # Expo Application Services configuration
+├── eslint.config.js         # ESLint configuration
+├── package.json             # Dependencies and scripts
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # This file
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Folder Descriptions
 
-## Learn more
+### 1. app
+- Contains main screens and navigation layouts.
+- `_layout.tsx` is the entry point for navigation using `expo-router`.
+- The `(tabs)` folder includes tabs such as the main screen (`index.tsx`) and the explore screen (`explore.tsx`).
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. components
+- Contains reusable UI components.
+- Examples:
+  - `themed-text.tsx` and `themed-view.tsx`: Support light and dark modes.
+  - `parallax-scroll-view.tsx`: Scrollable component with animated effects.
+  - `ui/`: UI components like icons and collapsible elements.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. constants
+- Contains constants such as colors and fonts in `theme.ts`.
 
-## Join the community
+### 4. hooks
+- Contains custom hooks such as:
+  - `use-color-scheme.ts`: To detect light/dark mode.
+  - `use-theme-color.ts`: To select colors based on the mode.
 
-Join our community of developers creating universal apps.
+### 5. scripts
+- Contains helper scripts like `reset-project.js` to reset the project.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 6. Configuration Files
+- app.json: Expo settings such as icons and splash screen.
+- eas.json: Expo Application Services settings.
+- eslint.config.js: ESLint configuration.
+- tsconfig.json: TypeScript configuration.
+- package.json: Contains dependencies and scripts.
+
+## Notes
+- Components with `.ios.tsx` or `.web.ts` extensions define platform-specific behavior.
+- To see examples of component usage, check:
+  - index.tsx for using `ParallaxScrollView` with `ThemedText`.
+  - explore.tsx for using animated icons.
