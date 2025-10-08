@@ -12,7 +12,7 @@ export default function HomeScreen() {
   const [news, setNews] = useState([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  // بيانات وهمية للبطاقات
+
   const cards = [
     {
       id: '1',
@@ -34,9 +34,9 @@ export default function HomeScreen() {
     }
   ];
 
-  // محاكاة جلب الأخبار
+
   useEffect(() => {
-    // في التطبيق الحقيقي، استخدم NewsAPI كما في :cite[2]
+
     const mockNews = [
       {
         id: '1',
@@ -65,7 +65,7 @@ export default function HomeScreen() {
     alert('مرحبًا! يمكنك التحدث بحرية هنا');
   };
 
-  const renderNewsItem = ({ item }) => (
+  const renderNewsItem = ({ item }:any) => (
     <ThemedView style={styles.newsCard}>
       <ThemedText type="subtitle" style={styles.newsTitle}>
         {item.title}
@@ -79,7 +79,7 @@ export default function HomeScreen() {
     </ThemedView>
   );
 
-  const renderCard = ({ item, index }) => (
+  const renderCard = ({ item, index }:any) => (
     <TouchableOpacity 
       style={[
         styles.card,
