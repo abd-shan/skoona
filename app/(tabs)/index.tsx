@@ -37,7 +37,7 @@ export default function HomeScreen() {
 
   useEffect(() => {
 
-    const mockNews = [
+    const mockNews:any = [
       {
         id: '1',
         title: 'أخبار التكنولوجيا اليوم',
@@ -61,7 +61,7 @@ export default function HomeScreen() {
   }, []);
 
   const handleVentPress = () => {
-    // هنا يمكنك إضافة التنقل لشاشة الفضفض
+
     alert('مرحبًا! يمكنك التحدث بحرية هنا');
   };
 
@@ -176,7 +176,7 @@ export default function HomeScreen() {
         <FlatList
           data={news}
           renderItem={renderNewsItem}
-          keyExtractor={item => item.id}
+          keyExtractor={(item:any) => item.id}
           scrollEnabled={false}
           style={styles.newsList}
         />
